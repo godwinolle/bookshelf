@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
+import { db } from '../config/firebase'
 
 let books = [
     {
@@ -26,19 +28,23 @@ const Shelf = () => {
         if(title === "" || author === ""){
             alert("Woah you didn't type anything in")
         } else{
-            console.log(title);
-            console.log(author);
-            console.log(status)
-            console.log(date);
-
-            books.push(
-                {
-                    title: title,
-                    author: author,
-                    status: status,
-                    date: date
-                }
-            )
+            try{
+                db.collection('books').add(
+                    {
+                        title: title,
+                        author: author,
+                        status: status,
+                        date: date
+                    }
+                )
+                console.log('Successfully added to DB')
+            } catch(err) {
+                console.log(err)
+            }
+            setTitle("")
+            setAuthor("")
+            setStatus("")
+            setDate("")
         }
     }
 
