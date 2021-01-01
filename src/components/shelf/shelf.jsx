@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { db } from '../config/firebase'
-
-let books = [
-    {
-        title: 'Relentless',
-        author: 'Mark Twain',
-        status: 'Not Read',
-        date: '2020-12-03'
-    },
-    {
-        title: 'Apple',
-        author: 'Tim Cook',
-        status: 'Reading',
-        date: '2020-12-23'
-    }
-]
 
 const Shelf = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [status, setStatus] = useState("Read");
     const [date, setDate] = useState("N/A");
+
+    const [books, setBooks] = useState([]);
+
+
+    useEffect(() => {
+        db.collection('books').onSnapshot(snapshot => {
+            setBooks(
+                snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    data: doc.data(),
+                }))
+            )
+        })
+    }, [])
+
+    const handleRemove = (id) => {
+        db.collection('books').doc(id).delete();
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -95,11 +98,13 @@ const Shelf = () => {
                             books.map((book,i) => {
                                 return(
                                     <tr key={i}>
-                                        <td>{book.title}</td>
-                                        <td>{book.author}</td>
-                                        <td>{book.status}</td>
-                                        <td>{book.date}</td>
-                                        <td className="delete">X</td>
+                                        <td>{book.data.title}</td>
+                                        <td>{book.data.author}</td>
+                                        <td>{book.data.status}</td>
+                                        <td>{book.data.date}</td>
+                                        <td className="delete" onClick={
+                                            () => handleRemove(book.id)
+                                        }>X</td>
                                         </tr>
                                 )
                             })
