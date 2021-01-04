@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
+import { UserContext } from '../../Auth'
+
+import { auth } from '../config/firebase'
 import { db } from '../config/firebase'
 
 const Shelf = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [status, setStatus] = useState("Read");
-    const [date, setDate] = useState("N/A");
+    const [date, setDate] = useState("");
 
     const [books, setBooks] = useState([]);
 
+    const { user } = useContext(UserContext);
+
+    
 
     useEffect(() => {
         db.collection('books').onSnapshot(snapshot => {
@@ -53,6 +59,11 @@ const Shelf = () => {
 
     return(
         <div>
+            <div className="signout">
+                <button onClick={() => auth.signOut()}>Sign Out</button>
+            </div>
+            <h1>Book Shelf</h1>
+            <h2>Welcome {user.displayName}!</h2>
             <form onSubmit={ handleSubmit }>
                 <table>
                     <thead>

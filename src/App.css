@@ -12,7 +12,79 @@ h1{
   text-align: center;
   letter-spacing: 0.385em;
 }
+h2{
+  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  letter-spacing: 0.385em;
+  font-size: 15px;
+  text-transform: uppercase;
+}
 
+.home .container{
+  width: 32%;
+  height: 460px;
+  background: linear-gradient(39.11deg, #000000 0%, rgba(0, 44, 201, 0.34375) 100%);
+  border-radius: 3px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+.home p{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  margin-top: 20px;
+  margin-bottom: 7px;
+}
+.home .container input{
+  width: 250px;
+  height: 30px;
+  outline: none;
+  padding-left: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.33px;
+}
+.home .container button{
+  background: rgba(0, 44, 201, 0.5);
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  margin-top: 20px;
+  width: 250px;
+  height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 23px;
+  letter-spacing: .2em;
+}
+.home .container .signup{
+  text-align: end;
+  margin-top: 4px;
+}
+.home .container span{
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.signout{
+  width: 98%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+.signout button{
+  width: 90px;
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  background-color: #000;
+}
 table{
   font-family: 'Montserrat', sans-serif;
   margin: 30px auto;
