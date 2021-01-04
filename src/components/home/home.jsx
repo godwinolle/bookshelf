@@ -34,7 +34,6 @@ const Home = () => {
         try{
             const response = await auth.createUserWithEmailAndPassword(email, password);
             await response.user.updateProfile({ displayName: display})
-            console.log(response);
         } catch(err){
             alert(err.message)
         }

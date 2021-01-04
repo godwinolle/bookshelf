@@ -18,7 +18,7 @@ const Shelf = () => {
     
 
     useEffect(() => {
-        db.collection('books').onSnapshot(snapshot => {
+        db.collection('users').doc(user.uid).collection('books').onSnapshot(snapshot => {
             setBooks(
                 snapshot.docs.map((doc) => ({
                     id: doc.id,
@@ -26,10 +26,10 @@ const Shelf = () => {
                 }))
             )
         })
-    }, [])
+    }, [user.uid])
 
     const handleRemove = (id) => {
-        db.collection('books').doc(id).delete();
+        db.collection('users').doc(user.uid).collection('books').doc(id).delete();
     }
 
     const handleSubmit = (e) => {
@@ -38,7 +38,7 @@ const Shelf = () => {
             alert("Woah you didn't type anything in")
         } else{
             try{
-                db.collection('books').add(
+                db.collection('users').doc(user.uid).collection('books').add(
                     {
                         title: title,
                         author: author,
@@ -46,7 +46,6 @@ const Shelf = () => {
                         date: date
                     }
                 )
-                console.log('Successfully added to DB')
             } catch(err) {
                 console.log(err)
             }

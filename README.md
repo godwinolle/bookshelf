@@ -11,4 +11,5 @@ I enjoyed working on this project and I love working with React and Firebase.
     * React Hooks
 * Firebase
     * Firestore
+    * Firebase Authentication
     * Firebase Hosting
