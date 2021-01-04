@@ -8,7 +8,7 @@ import { db } from '../config/firebase'
 const Shelf = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
-    const [status, setStatus] = useState("Read");
+    const [status, setStatus] = useState("");
     const [date, setDate] = useState("");
 
     const [books, setBooks] = useState([]);
@@ -55,7 +55,6 @@ const Shelf = () => {
             setDate("")
         }
     }
-
     return(
         <div>
             <div className="signout">
@@ -88,6 +87,7 @@ const Shelf = () => {
                             </td>
                             <td>
                                 <select value={status} onChange={(e) => setStatus(e.target.value)}>
+                                    <option defaultChecked>---</option>
                                     <option value="Read" defaultValue>Read</option>
                                     <option value="Reading">Reading</option>
                                     <option value="Not Read">Not Read</option>

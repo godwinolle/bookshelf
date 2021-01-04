@@ -24,8 +24,7 @@ const Home = () => {
 
     async function loginUser(email, password){
         try{
-            const response = await auth.signInWithEmailAndPassword(email, password);
-            console.log(response)
+            await auth.signInWithEmailAndPassword(email, password);
         } catch(err){
             alert(err.message)
         }
@@ -44,7 +43,6 @@ const Home = () => {
         email.trim()
         password.trim()
         if(email !== '' && password !== ''){
-            console.log('Trying to login')
             loginUser(email, password)
         } else{
             alert('Please enter something in these fields')
@@ -56,7 +54,6 @@ const Home = () => {
         email.trim()
         password.trim()
         if(email !== '' && password !== ''){
-            console.log('Trying to signup')
             signUpUser(email, password, displayName)
         } else{
             alert('Please enter something in these fields')
