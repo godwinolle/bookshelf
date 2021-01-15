@@ -24,7 +24,7 @@
 .navigation .link{
     text-decoration: none;
 }
-.navigation .login{
+.navigation .login-link{
     background-color: EFEFEF;
     border-radius: 3px;
     padding: 10px;
@@ -37,4 +37,70 @@
     padding: 10px;
     cursor: pointer;
     color: #fff;
+}
+.navigation .hamburger{
+    display: none;
+    padding: 10px;
+    cursor: pointer;
+    height: 50px;
+}
+.navigation .line .top{
+    margin-top: 10px;
+}
+.navigation .line{
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    margin-top: 5px;
+    border-radius: 30px;
+}
+.navigation .toggleMenu{
+    display: none
+}
+
+.toggleMenu{
+    background-color: #fff;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    font-size: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.toggleMenu ul{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.toggleMenu ul li{
+    list-style: none;
+    margin-top: 50px;
+    text-align: center;
+    color: #000;
+}
+.toggleMenu .link{
+    text-decoration: none;
+}
+.toggleMenu .close{
+    text-align: center;
+    padding-top: 5px;
+    margin: 50px auto;
+    width: 65%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #2671E1;
+    color: #fff;
+}
+
+@media only screen and (max-width: 620px){
+    .navigation ul{
+        display: none;
+    }
+    .navigation .hamburger{
+        display: block;
+    }
+    .navigation .toggleMenu{
+        display: block;
+    }
 }

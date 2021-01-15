@@ -52,3 +52,31 @@
 .tagline img{
     width: 500px;
 }
+
+
+@media only screen and (max-width: 620px){
+    .tagline{
+        width: 85%;
+        margin: 0 auto;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    } 
+    .tagline .explore{
+        width: 100%;
+    }
+    .tagline .explore h1{
+        width: 100%;
+        font-size: 30px;
+    }
+    .tagline .explore p{
+        width: 90%;
+    }
+    .tagline .explore form{
+        width: 100%;
+        margin-bottom: 20px
+    }
+    .tagline img{
+        width: 300px;
+    }
+}
