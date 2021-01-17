@@ -115,7 +115,7 @@ const Shelf = () => {
                                         <td className="delete" onClick={
                                             () => handleRemove(book.id)
                                         }>X</td>
-                                        </tr>
+                                    </tr>
                                 )
                             })
                         }

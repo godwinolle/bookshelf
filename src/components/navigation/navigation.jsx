@@ -20,10 +20,13 @@ const Navigation = () => {
             <div className="toggleMenu">
                 <ul>
                     <Link to="/login" className="link">
-                        <li className="login-link">Login</li>
+                        <li>Login</li>
                     </Link>
                     <Link to="/register" className="link">
-                        <li className="sign-up">Create an Account</li>
+                        <li>Create an Account</li>
+                    </Link>
+                    <Link to="/search" className="link">
+                        <li>Search</li>
                     </Link>
                 </ul>
                 <div className="close" onClick={()=> onToggle()}>CLOSE</div>
@@ -36,7 +39,9 @@ const Navigation = () => {
         <div className="navigation">
             <nav>
                 <div className="logo">
-                    <img src={logo} alt="BookShelf.io logo"/>
+                    <Link to='/'>
+                        <img src={logo} alt="BookShelf.io logo"/>
+                    </Link>
                 </div>
                 <div>
                     <ul>

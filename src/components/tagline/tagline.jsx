@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 //icons from react-icon dependency
 import { FaSearch } from 'react-icons/fa'
 
@@ -8,9 +9,16 @@ import landing from '../../assets/landing.svg'
 
 import './tagline.css'
 
+
 const Tagline = () => {
     const [book, setBook] = useState('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(book)
+    }
+
+    
     return(
         <div className="tagline">
             <div className="explore">
@@ -20,7 +28,7 @@ const Tagline = () => {
                     The more that you learn, the more places you’ll go. 
                     —Dr. Seuss
                 </p>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label><FaSearch /></label>
                     <input placeholder="Search For A Good Read"
                     value={book} onChange={(e) => setBook(e.target.value)}
